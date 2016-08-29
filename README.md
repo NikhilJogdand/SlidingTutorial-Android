@@ -30,10 +30,29 @@ All you need to do is:
 
 First, add gradle dependency into your build.gradle:
 ```groovy
+android {
+
+    defaultConfig {
+        //...
+
+        jackOptions {
+            enabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //...
+}
+
 dependencies {
     compile 'com.cleveroad:slidingtutorial:1.0.0'
 }
-``` 
+```
+`defaultConfig.jackOptions` and `compileOptions` is required, because library support `24` sdk version.
 
 There are two common variants of using library: via [TutorialPageProvider] and via [TutorialPageOptionsProvider].
 ### Via TutorialPageProvider
